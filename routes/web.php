@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login', \App\Livewire\Auth::class)->name('login');
