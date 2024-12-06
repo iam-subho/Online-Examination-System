@@ -12,8 +12,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/telescope": "^5.2",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.5",
-        "luvi-ui/laravel-luvi": "^0.5.3"
+        "livewire/livewire": "^3.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
