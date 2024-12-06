@@ -6,7 +6,7 @@ use App\Models\Admin;
 use App\Services\EmailPasswordLoginService;
 use Livewire\Component;
 
-class Auth extends Component
+class Login extends Component
 {
     public $email,$password;
     protected $emailpasswordlogin;
@@ -32,7 +32,7 @@ class Auth extends Component
         $user = $this->emailpasswordlogin->login($this->email, $this->password);
         if($user instanceof Admin){
             session()->put('admin',$user);
-            auth()->guard('admin')->login($user);
+            //auth()->guard('admin')->login($user);
             //mydd(session()->all());
             return redirect()->route('admin.dashboard');
         }
