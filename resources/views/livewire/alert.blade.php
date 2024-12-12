@@ -3,11 +3,15 @@
         show: @entangle('show'), // Bind show property to Alpine.js
         type: @entangle('type'), // Bind type property to Alpine.js
         message: @entangle('message'), // Bind message property to Alpine.js
+        //startTime: @entangle('startTime'), // Bind message property to Alpine.js
+        duration: @entangle('duration'), // Bind message property to Alpine.js
         progress: 100,
         timer: null,
-        startTimer() {
-            const startTime = Date.now();
-            const duration = 5000; // 5 seconds for the progress bar
+        startTimer(sstartTime) {
+
+            const startTime = sstartTime;
+
+            const duration = 2000;
 
             this.timer = setInterval(() => {
                 const elapsed = Date.now() - startTime;
@@ -18,9 +22,14 @@
                     clearInterval(this.timer);
                 }
             }, 16); // ~60 fps for smooth animation
+        },
+        listenToAlertEvent() {
+            window.addEventListener('alert-show', () => {
+                this.startTimer(Date.now());
+            });
         }
     }"
-    x-init="startTimer()"
+    x-init="listenToAlertEvent()"
     x-show="show"
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-100"
@@ -35,8 +44,9 @@
             @click="show = false; clearInterval(timer)"
             class="absolute top-2 right-2 text-white hover:text-gray-200"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
         </button>
 
