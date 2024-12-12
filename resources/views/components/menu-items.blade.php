@@ -7,12 +7,13 @@
         <x-menu-item label="Archive" icon="archive-box" badge="25" badge-end/>
         <x-menu-item label="Move" icon="arrow-right-circle"/>
 
-        <x-separator title="Actions"/>
-        <x-menu-item label="Share" icon="user-plus" badge="New"/>
-        <x-menu-item label="Add to Favorites" icon="heart"/>
+        <x-separator title="Setup"/>
+        <x-menu-item label="State" icon="building-library" badge="New"/>
+        <x-menu-item label="District" icon="building-storefront"/>
+        <x-menu-item label="School Board" icon="building-office-2"/>
+        <x-menu-item label="School" icon="academic-cap"/>
+        <x-menu-item label="System Settings" icon="building-office-2"/>
 
-        <x-separator/>
-        <x-menu-item label="Delete" icon="trash"/>
     </x-menu>
 
 </div>
