@@ -4,6 +4,7 @@ use App\Http\Middleware\LivewireDynamicLayoutMiddleware;
 use App\Livewire\AdminDashboard;
 use App\Livewire\Login;
 use App\Livewire\LogoutComponent;
+use App\Livewire\StatesManagement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,9 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
 
        Route::get('dashboard', AdminDashboard::class)->name('dashboard');
        Route::get('logout', LogoutComponent::class)->name('logout');
+
+
+       Route::get('states-management', StatesManagement::class)->name('states-management');
 
     });
 });

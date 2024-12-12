@@ -3,9 +3,10 @@ module.exports = {
     darkMode:"class",
   content: [
 		"./resources/**/*.blade.php",
-		"./resources/**/*.js",
-		'./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-		"./vendor/developermithu/tallcraftui/src/View/Components/**/*.php",
+		 "./resources/**/*.js",
+		 './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+		 "./vendor/developermithu/tallcraftui/src/View/Components/**/*.php",
+		 "./vendor/robsontenorio/mary/src/View/Components/**/*.php"
 	],
   theme: {
     extend: {
@@ -15,6 +16,8 @@ module.exports = {
         }
     },
   },
-  plugins: [],
+  plugins: [
+		require("daisyui")
+	],
 }
 
