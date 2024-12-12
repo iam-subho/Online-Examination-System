@@ -76,10 +76,12 @@
     <div class="flex">
 
         <!-- Include Sidebar -->
-        @include('layouts.sidebar')
+        <div class="w-64  py-14 text-white h-screen fixed top-0 left-0 hidden md:block">
+            <x-menu-items></x-menu-items>
+        </div>
 
         <!-- Main Content Area -->
-        <div class="flex-1 ml-64 bg-gray-100">
+        <div class="flex-1 md:ml-64 bg-gray-100">
 
             <!-- Include Topbar -->
             @include('layouts.topbar')
