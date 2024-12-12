@@ -9,6 +9,7 @@ class SubModule extends Model
 {
     protected $fillable = [
         'module_id',
+        'sub_module_code',
         'name',
     ];
 

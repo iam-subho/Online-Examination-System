@@ -32,16 +32,15 @@ class Login extends Component
         $user = $this->emailpasswordlogin->login($this->email, $this->password);
         if($user instanceof Admin){
             session()->put('admin',$user);
-            //auth()->guard('admin')->login($user);
-            //mydd(session()->all());
-            return redirect()->route('admin.dashboard');
+
+            return redirect()->route('admin.dashboard')->with('successMessage','Login successfully');
         }
 
-        session()->flash('message', [
+        /*session()->flash('message', [
             'type' => 'error', // success, error, info
             'title' => 'Login Failed!',
             'content' => 'Email or password is wrong!'
-        ]);
+        ]);*/
 
         return redirect()->route('admin.login')->with('errorMessage', 'The email or password is incorrect.');
     }
