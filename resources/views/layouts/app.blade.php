@@ -71,6 +71,8 @@
 {{--    @endif--}}
 
     @include('layouts.myalert')
+    <livewire:alert/>
+
 
     <!-- Content Layout -->
     <div class="flex">
@@ -97,6 +99,7 @@
 </div>
 
 @livewireScripts
+
 @stack('scripts')
 </body>
 </html>
