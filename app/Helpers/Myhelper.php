@@ -1,13 +1,14 @@
 <?php
 
-if(!function_exists("mydd")){
+if(!function_exists("my_dd")){
 
-    function mydd($data,$die = false){
+    function my_dd($data,$die = false){
 
         echo "<pre>";
         print_r($data);
         echo "</pre>";
-        if ($die == true){
+
+        if ($die){
             die();
         }
     }
