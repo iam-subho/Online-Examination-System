@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-
 use App\Models\AdminRole;
 use App\Models\Permission;
 use App\Models\SubModule;
@@ -14,7 +13,7 @@ class RBAC
     {
     }
 
-    public function hasPermission($sub_module_code_operate,$userAbort = true)
+    public function hasPermission($sub_module_code_operate, $userAbort = true)
     {
         try {
             // Separate the sub-module code and type
@@ -23,9 +22,9 @@ class RBAC
             $type = $separate[1] ?? null;  // Default to null if not present
 
             if (!$sub_module_code || !$type) {
-
+                $errorMessage = 'Sub-module code or action type is invalid or missing.';
                 if ($userAbort) {
-                    abort(403, 'Invalid sub-module code or type.');
+                    abort(403, $errorMessage);
                 }
                 return false;
             }
@@ -40,8 +39,9 @@ class RBAC
             $admin = Auth::user();
 
             if (!$admin) {
+                $errorMessage = 'Logged-in user not found.';
                 if ($userAbort) {
-                    abort(403, 'Invalid sub-module code or type.');
+                    abort(403, $errorMessage);
                 }
                 return false;
             }
@@ -50,8 +50,9 @@ class RBAC
             $adminRoles = AdminRole::where('admin_id', $admin->id)->get();
 
             if ($adminRoles->isEmpty()) {
+                $errorMessage = 'User does not have any assigned roles.';
                 if ($userAbort) {
-                    abort(403, 'Invalid sub-module code or type.');
+                    abort(403, $errorMessage);
                 }
                 return false;
             }
@@ -60,8 +61,9 @@ class RBAC
             $subModule = SubModule::where('sub_module_code', $sub_module_code)->first();
 
             if (!$subModule) {
+                $errorMessage = 'Sub-module with the given code does not exist.';
                 if ($userAbort) {
-                    abort(403, 'Invalid sub-module code or type.');
+                    abort(403, $errorMessage);
                 }
                 return false;
             }
@@ -77,19 +79,20 @@ class RBAC
                 return true;
             } else {
                 // If no permission, abort with 403
+                $errorMessage = 'You do not have permission to access this sub-module or perform this action.';
                 if ($userAbort) {
-                    abort(403, 'Invalid sub-module code or type.');
+                    abort(403, $errorMessage);
                 }
                 return false;
             }
 
         } catch (\Exception $e) {
             \Log::error('Permission check failed: ' . $e->getMessage());
+            $errorMessage = 'An error occurred while checking permissions.';
             if ($userAbort) {
-                abort(403, 'Invalid sub-module code or type.');
+                abort(403, $errorMessage);
             }
             return false;
         }
     }
-
 }
