@@ -3,6 +3,7 @@
 namespace App\Livewire\State;
 
 use App\Services\QueryService\StateManageService;
+use Auth;
 use Livewire\Component;
 
 class StateEdit extends Component
@@ -13,6 +14,9 @@ class StateEdit extends Component
     public function boot(StateManageService $stateQueryService): void
     {
         $this->stateQueryService = $stateQueryService;
+        if(!Auth::user()->can('State.edit')){
+            abort(403, 'You dont have permission to access this page!');
+        }
     }
 
     public function mount($id)

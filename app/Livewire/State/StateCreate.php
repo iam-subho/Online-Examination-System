@@ -17,6 +17,9 @@ class StateCreate extends Component
     public function boot(StateManageService $stateQueryService): void
     {
         $this->stateQueryService = $stateQueryService;
+        if(!Auth::user()->can('State.create')) {
+            abort(403, 'You dont have permission to access this page!');
+        }
     }
 
     public function mount()

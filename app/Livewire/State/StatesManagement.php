@@ -17,10 +17,19 @@ class StatesManagement extends Component
     public function boot(StateManageService $stateQueryService): void
     {
         $this->stateQueryService = $stateQueryService;
+
+        if(!Auth::user()->can('State.delete') && !Auth::user()->can('State.view')){
+            abort(403, 'You dont have permission to access this page!');
+        }
     }
 
 
     public function mount(){
+
+        if(!Auth::user()->can('State.view')){
+            $this->dispatch('showErrorMessage', 'You dont have permission to access this page!');
+            return;
+        }
 
        $this->headers = [
            ['key' => 'id', 'label' => '#'],
