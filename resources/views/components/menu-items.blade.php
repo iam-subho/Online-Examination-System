@@ -10,7 +10,7 @@
 
         <x-separator title="Setup"/>
         <x-menu-item label="State" icon="building-library" link="{{ route('admin.states-management') }}" />
-        <x-menu-item label="District" icon="building-storefront"/>
+        <x-menu-item label="District" icon="building-storefront" link="{{ route('admin.district-management') }}"/>
         <x-menu-item label="School Board" icon="building-office-2"/>
         <x-menu-item label="School" icon="academic-cap"/>
         <x-menu-item label="System Settings" icon="building-office-2"/>

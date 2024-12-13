@@ -2,6 +2,9 @@
 
 use App\Http\Middleware\LivewireDynamicLayoutMiddleware;
 use App\Livewire\AdminDashboard;
+use App\Livewire\District\DistrictCreate;
+use App\Livewire\District\DistrictEdit;
+use App\Livewire\District\DistrictManagement;
 use App\Livewire\Login;
 use App\Livewire\LogoutComponent;
 use App\Livewire\State\StateCreate;
@@ -37,6 +40,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
        Route::get('states-management', StatesManagement::class)->name('states-management');
        Route::get('states-create', StateCreate::class)->name('states-create');
        Route::get('states-edit/{id}', StateEdit::class)->name('states-edit');
+
+       Route::get('district-management', DistrictManagement::class)->name('district-management');
+       Route::get('district-create', DistrictCreate::class)->name('district-create');
+       Route::get('district-edit/{id}', DistrictEdit::class)->name('district-edit');
 
     });
 });
