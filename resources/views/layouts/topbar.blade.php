@@ -23,13 +23,13 @@
     <div class="text-sm">
         <x-dropdown>
             @slot('trigger')
-                <x-avatar :image="$imgUrl" ring ring-color="sky" badge badge-color="sky" />
+                <x-avatar :image="$imgUrl" class="cursor-pointer" ring ring-color="sky" badge badge-color="sky" />
             @endslot
 
             <x-dropdown-item label="Profile" icon="user" />
             <x-dropdown-item label="Update password" icon="key" />
             <x-separator />
-            <x-dropdown-item label="Sign out" icon="arrow-right-end-on-rectangle" />
+            <x-dropdown-item label="Sign out" icon="arrow-right-end-on-rectangle" link="{{ route('admin.logout') }}" />
         </x-dropdown>
     </div>
 </div>

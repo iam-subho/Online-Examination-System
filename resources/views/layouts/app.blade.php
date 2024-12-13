@@ -83,13 +83,13 @@
         </div>
 
         <!-- Main Content Area -->
-        <div class="flex-1 md:ml-64 bg-gray-100">
+        <div class="flex-1 md:ml-60 bg-gray-100">
 
             <!-- Include Topbar -->
             @include('layouts.topbar')
 
             <!-- Page Content -->
-            <div class="pt-16 pb-8 px-6">
+            <div class="pt-16 pb-8 px-2">
                 <main>
                     {{ $slot }}
                 </main>
