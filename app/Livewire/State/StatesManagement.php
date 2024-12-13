@@ -2,7 +2,7 @@
 
 namespace App\Livewire\State;
 
-use App\Services\QueryService\StateManageService;
+use App\Services\QueryService\StateQueryService;
 use Auth;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
@@ -14,7 +14,7 @@ class StatesManagement extends Component
 
     public $headers,$name,$id;
 
-    public function boot(StateManageService $stateQueryService): void
+    public function boot(StateQueryService $stateQueryService): void
     {
         $this->stateQueryService = $stateQueryService;
 

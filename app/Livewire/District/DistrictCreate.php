@@ -3,7 +3,7 @@
 namespace App\Livewire\District;
 
 use App\Services\QueryService\DistrictQueryService;
-use App\Services\QueryService\StateManageService;
+use App\Services\QueryService\StateQueryService;
 use Auth;
 use Livewire\Component;
 
@@ -15,7 +15,7 @@ class DistrictCreate extends Component
     protected $districtsQueryService;
     protected  $stateQueryService;
 
-    public function boot(DistrictQueryService $districtsQueryService ,StateManageService  $stateQueryService){
+    public function boot(DistrictQueryService $districtsQueryService , StateQueryService $stateQueryService){
         $this->districtsQueryService = $districtsQueryService;
         $this->stateQueryService = $stateQueryService;
 

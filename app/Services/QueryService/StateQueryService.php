@@ -7,7 +7,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Mary\View\Components\Stat;
 
-class StateManageService
+class StateQueryService
 {
     public function __construct()
     {

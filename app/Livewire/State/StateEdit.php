@@ -2,7 +2,7 @@
 
 namespace App\Livewire\State;
 
-use App\Services\QueryService\StateManageService;
+use App\Services\QueryService\StateQueryService;
 use Auth;
 use Livewire\Component;
 
@@ -11,7 +11,7 @@ class StateEdit extends Component
     protected $stateQueryService;
     public $name,$id;
 
-    public function boot(StateManageService $stateQueryService): void
+    public function boot(StateQueryService $stateQueryService): void
     {
         $this->stateQueryService = $stateQueryService;
         if(!Auth::user()->can('State.edit')){
