@@ -4,7 +4,9 @@ use App\Http\Middleware\LivewireDynamicLayoutMiddleware;
 use App\Livewire\AdminDashboard;
 use App\Livewire\Login;
 use App\Livewire\LogoutComponent;
-use App\Livewire\StatesManagement;
+use App\Livewire\State\StateCreate;
+use App\Livewire\State\StateEdit;
+use App\Livewire\State\StatesManagement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +35,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
 
 
        Route::get('states-management', StatesManagement::class)->name('states-management');
+       Route::get('states-create', StateCreate::class)->name('states-create');
+       Route::get('states-edit/{id}', StateEdit::class)->name('states-edit');
 
     });
 });
