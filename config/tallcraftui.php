@@ -121,9 +121,9 @@ return [
     ],
 
     'toast' => [
-        'position' => ToastPosition::BOTTOM_RIGHT->value,
-        'showCloseIcon' => false,
-        'showProgress' => false,
+        'position' => ToastPosition::TOP_RIGHT->value,
+        'showCloseIcon' => true,
+        'showProgress' => true,
         'timeout' => 3000,
     ],
 

@@ -7,6 +7,8 @@
     <title>Welcome {{ Auth::user()->name }}</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.5/tinymce.min.js"></script>
+
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -72,6 +74,7 @@
 
     @include('layouts.myalert')
     <livewire:alert/>
+    <x-toast/>
 
 
     <!-- Content Layout -->

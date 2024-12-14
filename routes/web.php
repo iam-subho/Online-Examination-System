@@ -5,6 +5,8 @@ use App\Livewire\AdminDashboard;
 use App\Livewire\District\DistrictCreate;
 use App\Livewire\District\DistrictEdit;
 use App\Livewire\District\DistrictManagement;
+use App\Livewire\Exam\QuestionBank;
+use App\Livewire\Exam\QuestionCreate;
 use App\Livewire\Login;
 use App\Livewire\LogoutComponent;
 use App\Livewire\State\StateCreate;
@@ -35,6 +37,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
 
        Route::get('dashboard', AdminDashboard::class)->name('dashboard');
        Route::get('logout', LogoutComponent::class)->name('logout');
+
+
+        Route::get('question-bank', QuestionBank::class)->name('question-bank');
+        Route::get('question-create', QuestionCreate::class)->name('question-create');
 
 
        Route::get('states-management', StatesManagement::class)->name('states-management');

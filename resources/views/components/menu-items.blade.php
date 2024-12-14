@@ -8,6 +8,9 @@
         <x-menu-item label="Archive" icon="archive-box" badge="25" badge-end/>
         <x-menu-item label="Move" icon="arrow-right-circle"/>
 
+        <x-separator title="Exam"/>
+        <x-menu-item label="Questions" icon="building-library" link="{{ route('admin.question-bank') }}" />
+
         <x-separator title="Setup"/>
         <x-menu-item label="State" icon="building-library" link="{{ route('admin.states-management') }}" />
         <x-menu-item label="District" icon="building-storefront" link="{{ route('admin.district-management') }}"/>
