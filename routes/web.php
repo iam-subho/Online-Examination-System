@@ -5,6 +5,9 @@ use App\Livewire\AdminDashboard;
 use App\Livewire\District\DistrictCreate;
 use App\Livewire\District\DistrictEdit;
 use App\Livewire\District\DistrictManagement;
+use App\Livewire\Exam\ExamCategory;
+use App\Livewire\Exam\ExamCategoryCreate;
+use App\Livewire\Exam\ExamCategoryEdit;
 use App\Livewire\Exam\QuestionBank;
 use App\Livewire\Exam\QuestionCreate;
 use App\Livewire\Exam\QuestionEdit;
@@ -39,10 +42,13 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
        Route::get('dashboard', AdminDashboard::class)->name('dashboard');
        Route::get('logout', LogoutComponent::class)->name('logout');
 
+       Route::get('exam-category', ExamCategory::class)->name('exam-category');
+       Route::get('examcategory-create', ExamCategoryCreate::class)->name('examcategory-create');
+       Route::get('examcategory-edit/{id}', ExamCategoryEdit::class)->name('examcategory-edit');
 
-        Route::get('question-bank', QuestionBank::class)->name('question-bank');
-        Route::get('question-create', QuestionCreate::class)->name('question-create');
-        Route::get('question-edit/{id}', QuestionEdit::class)->name('question-edit');
+       Route::get('question-bank', QuestionBank::class)->name('question-bank');
+       Route::get('question-create', QuestionCreate::class)->name('question-create');
+       Route::get('question-edit/{id}', QuestionEdit::class)->name('question-edit');
 
 
        Route::get('states-management', StatesManagement::class)->name('states-management');
