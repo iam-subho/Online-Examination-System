@@ -6,7 +6,7 @@
         timer: null,
         startTimer() {
             const startTime = Date.now();
-            const duration = 5000; // 5 seconds
+            const duration = 3000; // 5 seconds
 
             this.timer = setInterval(() => {
                 const elapsed = Date.now() - startTime;
@@ -24,7 +24,7 @@
         x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-90"
-        class="fixed top-0 left-1/2 transform -translate-x-1/2 mt-4 shadow-lg w-80 z-50 bg-green-500"
+        class="fixed top-0 right-0 mt-4 mr-4 shadow-lg w-80 z-50 bg-green-500"
     >
         <div class="px-6 py-4 relative">
             <!-- Close Button -->
@@ -50,7 +50,6 @@
         </div>
     </div>
 @endif
-
 @if(session()->has('errorMessage'))
     <div
         x-data="{
@@ -59,7 +58,7 @@
         timer: null,
         startTimer() {
             const startTime = Date.now();
-            const duration = 5000; // 5 seconds
+            const duration = 3000; // 5 seconds
 
             this.timer = setInterval(() => {
                 const elapsed = Date.now() - startTime;
@@ -77,7 +76,7 @@
         x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-90"
-        class="fixed top-0 left-1/2 transform -translate-x-1/2 mt-4 shadow-lg w-80 z-50 bg-red-500"
+        class="fixed top-0 right-0 mt-4 mr-4 shadow-lg w-80 z-50 bg-red-500"
     >
         <div class="px-6 py-4 relative">
             <!-- Close Button -->
