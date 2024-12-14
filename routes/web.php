@@ -7,6 +7,7 @@ use App\Livewire\District\DistrictEdit;
 use App\Livewire\District\DistrictManagement;
 use App\Livewire\Exam\QuestionBank;
 use App\Livewire\Exam\QuestionCreate;
+use App\Livewire\Exam\QuestionEdit;
 use App\Livewire\Login;
 use App\Livewire\LogoutComponent;
 use App\Livewire\State\StateCreate;
@@ -41,6 +42,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
 
         Route::get('question-bank', QuestionBank::class)->name('question-bank');
         Route::get('question-create', QuestionCreate::class)->name('question-create');
+        Route::get('question-edit/{id}', QuestionEdit::class)->name('question-edit');
 
 
        Route::get('states-management', StatesManagement::class)->name('states-management');

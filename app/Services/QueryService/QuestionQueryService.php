@@ -65,6 +65,40 @@ class QuestionQueryService
 
     }
 
+    public function updateQuestion($id,$data)
+    {
+
+        DB::beginTransaction();
+        QuestionOption::query()->where('question_id', $id)->delete();
+        try{
+            $question = Question::findOrFail($id);
+            $question->question_uid  = Str::uuid()->toString();
+            $question->question_text = $data['question_content'];
+            $question->question_type = $data['type'];
+            $question->difficulty    = $data['difficulty'];
+            $question->points        = $data['points'];
+            $question->save();
+
+            foreach ($data['answers'] as $index => $answer) {
+                if($answer){
+                    $questionOption = new QuestionOption([
+                        'option_uid'   => Str::uuid()->toString(),
+                        'options_text' => $answer,
+                        'is_correct'   => ($data['correct_answer'] == $index+1) ? true : false,
+                    ]);
+                    $question->questionOptions()->save($questionOption);
+                }
+            }
+        }catch (\Exception $e){
+            DB::rollBack();
+            throw $e;
+            return false;
+        }
+        DB::commit();
+        return true;
+
+    }
+
     public function deleteQuestion($id):bool
     {
         $question = Question::query()->findOrFail($id);

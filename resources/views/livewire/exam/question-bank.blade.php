@@ -39,7 +39,7 @@
                                     <a href="#" wire:click="viewDetails({{ $question->id }})" class="text-yellow-500 hover:text-yellow-700" wire:loading.attr="disabled">View Details</a> |
                                 @endif
                                 @if(Auth::user()->can('Question.edit'))
-                                    <a href="{{ route('admin.states-edit', $question->id) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                                    <a href="{{ route('admin.question-edit', $question->id) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
                                 @endif
                                 @if(Auth::user()->can('Question.delete'))
                                     | <a href="#" class="text-red-500 hover:text-red-700" wire:confirm="Are you sure!" wire:click="delete({{ $question->id }})">Delete</a>
