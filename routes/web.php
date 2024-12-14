@@ -8,6 +8,8 @@ use App\Livewire\District\DistrictManagement;
 use App\Livewire\Exam\ExamCategory;
 use App\Livewire\Exam\ExamCategoryCreate;
 use App\Livewire\Exam\ExamCategoryEdit;
+use App\Livewire\Exam\ExamForm;
+use App\Livewire\Exam\ExamManagement;
 use App\Livewire\Exam\QuestionBank;
 use App\Livewire\Exam\QuestionCreate;
 use App\Livewire\Exam\QuestionEdit;
@@ -41,6 +43,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
 
        Route::get('dashboard', AdminDashboard::class)->name('dashboard');
        Route::get('logout', LogoutComponent::class)->name('logout');
+
+       Route::get('exam-management', ExamManagement::class)->name('exam-management');
+       Route::get('exam-create', ExamForm::class)->name('exam-create');
+       Route::get('exam-edit/{id}', ExamForm::class)->name('exam-edit');
 
        Route::get('exam-category', ExamCategory::class)->name('exam-category');
        Route::get('examcategory-create', ExamCategoryCreate::class)->name('examcategory-create');

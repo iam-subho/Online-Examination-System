@@ -10,6 +10,7 @@
 
         <x-separator title="Exam"/>
         <x-menu-item label="Category" icon="building-library" link="{{ route('admin.exam-category') }}" />
+        <x-menu-item label="Exams" icon="building-library" link="{{ route('admin.exam-management') }}" />
         <x-menu-item label="Questions" icon="building-library" link="{{ route('admin.question-bank') }}" />
 
         <x-separator title="Setup"/>

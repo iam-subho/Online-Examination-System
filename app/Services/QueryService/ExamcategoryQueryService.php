@@ -3,6 +3,7 @@
 namespace App\Services\QueryService;
 
 use App\Models\ExamCategory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ExamcategoryQueryService
@@ -16,10 +17,15 @@ class ExamcategoryQueryService
         return ExamCategory::find($id);
     }
 
-    public function getExamcategoryList($perPage = 10):LengthAwarePaginator
+    public function getExamcategoryList($perPage=null):LengthAwarePaginator|Collection
     {
        $categoryList = ExamCategory::query();
-       return $categoryList->paginate($perPage);
+       if($perPage) {
+           $categoryList = $categoryList->paginate($perPage);
+       }else{
+           $categoryList = $categoryList->get();
+       }
+       return $categoryList;
     }
 
     public function createCategory($name):bool
