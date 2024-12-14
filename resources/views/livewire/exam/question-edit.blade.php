@@ -39,7 +39,7 @@
                 <!-- Description field with LaTeX support -->
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Description</label>
-                    <x-marry-editor wire:model="question_content" folder="questions" hint="The full product description" />
+                    <x-marry-editor wire:model="question_content" folder="questions" hint="The full question description" />
                 </div>
 
                 <div class="mb-4">
