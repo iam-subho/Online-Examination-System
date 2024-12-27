@@ -6,9 +6,9 @@ use App\Facades\RBAC;
 use App\Models\District;
 use App\Models\School;
 use App\Models\State;
+use Illuminate\Http\Request;
 use Livewire\Component;
-
-
+use Session;
 
 
 class AdminDashboard extends Component
@@ -18,7 +18,12 @@ class AdminDashboard extends Component
 
 
 
-    public function mount(){
+    public function mount(Request $request){
+
+        //$currentGuard = Session::get('current_active_guard');
+        //my_dd($currentGuard,true);
+
+
         $this->state = State::all()->count();
         $this->district = District::all()->count();
         $this->school = School::all()->count();
