@@ -60,6 +60,14 @@
                                     </span>
                             </td>
                             <td class="py-3 px-4 text-sm text-gray-800">
+                                @if(Auth::user()->can('ExamQuestionSet.view'))
+                                    <a
+                                        href="{{ route('admin.exam-question-map-create', $exam->id) }}"
+                                        class="text-purple-500 hover:text-purple-700"
+                                    >
+                                        Set Question
+                                    </a> |
+                                @endif
                                 @if(Auth::user()->can('Exam.view'))
                                     <a
                                         href="#"

@@ -10,6 +10,8 @@ use App\Livewire\Exam\ExamCategoryCreate;
 use App\Livewire\Exam\ExamCategoryEdit;
 use App\Livewire\Exam\ExamForm;
 use App\Livewire\Exam\ExamManagement;
+use App\Livewire\Exam\ExamQuestionMapForm;
+use App\Livewire\Exam\ExamQuestionSet;
 use App\Livewire\Exam\QuestionBank;
 use App\Livewire\Exam\QuestionCreate;
 use App\Livewire\Exam\QuestionEdit;
@@ -51,6 +53,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
        Route::get('exam-category', ExamCategory::class)->name('exam-category');
        Route::get('examcategory-create', ExamCategoryCreate::class)->name('examcategory-create');
        Route::get('examcategory-edit/{id}', ExamCategoryEdit::class)->name('examcategory-edit');
+
+
+       Route::get('examquestionset/{id}', ExamQuestionSet::class)->name('exam-question-set');
+       Route::get('exam-question-map-create/{id}', ExamQuestionMapForm::class)->name('exam-question-map-create');
 
        Route::get('question-bank', QuestionBank::class)->name('question-bank');
        Route::get('question-create', QuestionCreate::class)->name('question-create');
