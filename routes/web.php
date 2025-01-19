@@ -2,6 +2,8 @@
 
 use App\Http\Middleware\LivewireDynamicLayoutMiddleware;
 use App\Livewire\AdminDashboard;
+use App\Livewire\Candidate\CandidateForm;
+use App\Livewire\Candidate\CandidateManagement;
 use App\Livewire\District\DistrictCreate;
 use App\Livewire\District\DistrictEdit;
 use App\Livewire\District\DistrictManagement;
@@ -45,6 +47,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware' => [LivewireDynamicL
 
        Route::get('dashboard', AdminDashboard::class)->name('dashboard');
        Route::get('logout', LogoutComponent::class)->name('logout');
+
+       Route::get('candidate', CandidateManagement::class)->name('candidate');
+       Route::get('candidate-create', CandidateForm::class)->name('candidate.create');
+       Route::get('candidate-edit/{id}', CandidateForm::class)->name('candidate.edit');
 
        Route::get('exam-management', ExamManagement::class)->name('exam-management');
        Route::get('exam-create', ExamForm::class)->name('exam-create');

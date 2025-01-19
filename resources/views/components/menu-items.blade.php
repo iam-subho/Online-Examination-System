@@ -1,12 +1,9 @@
 <div>
     <x-menu title="">
         <x-menu-item label="Dashboard" icon="home" link="{{ route('admin.dashboard') }}"/>
-        <x-menu-item label="Edit" icon="pencil-square"/>
-        <x-menu-item label="Duplicate" icon="document-duplicate"/>
+        <x-menu-item label="Candidate" icon="user" link="{{ route('admin.candidate') }}"/>
 
-        <x-separator/>
-        <x-menu-item label="Archive" icon="archive-box" badge="25" badge-end/>
-        <x-menu-item label="Move" icon="arrow-right-circle"/>
+
 
         <x-separator title="Exam"/>
         <x-menu-item label="Category" icon="building-library" link="{{ route('admin.exam-category') }}" />
